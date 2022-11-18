@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { add,sub } from './actions';
 class App extends Component {
     render() {
         let { count,dispatch} = this.props;
@@ -8,10 +9,10 @@ class App extends Component {
                   <h3>App组件</h3>
                 <p>{count}</p>
                 <button onClick={()=>{
-                    dispatch({type:'add'})
+                    dispatch(add())
                 }}>+</button>
                 <button onClick={()=>{
-                    dispatch({type:'sub'})
+                    dispatch(sub())
                 }}>-</button>
             </div>
         );
