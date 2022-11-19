@@ -1,26 +1,40 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { add,sub } from './actions';
+import * as type from './actions';
+// import { bindActionCreators } from 'redux';
+const mapStateToProps=(state)=>{
+    return{
+        counter:state.count
+    }
+}
+@connect(mapStateToProps,type)
 class App extends Component {
     render() {
-        let { count,dispatch} = this.props;
+        let { counter,add,sub} = this.props;
+        console.log(this.props);
         return (
             <div>
                   <h3>App组件</h3>
-                <p>{count}</p>
+                <p>{counter.count}</p>
                 <button onClick={()=>{
-                    dispatch(add())
+                    add()
                 }}>+</button>
                 <button onClick={()=>{
-                    dispatch(sub())
+                    sub()
                 }}>-</button>
             </div>
         );
     }
 }
-const mapStateToProps=(state)=>{
-    return{
-        count:state
-    }
-}
-export default connect(mapStateToProps)(App);
+
+// const mapDispatchToProps=(dispatch,props)=>{
+    // return bindActionCreators({add,sub},dispatch)
+        // return{
+            // add:()=>dispatch(add()),
+        // sub:()=>dispatch(sub())
+        // }
+// }
+// export default connect(mapStateToProps,mapDispatchToProps)(App);
+// export default connect(mapStateToProps,{add,sub})(App);
+// export default connect(mapStateToProps,type)(App);
+export default App;

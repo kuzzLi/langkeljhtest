@@ -1,12 +1,12 @@
 import { ADD,SUB } from "../../constants"
-const CountReducer=(prevState=0,action={})=>{
-    let newState=prevState
+const CountReducer=(prevState={count:0},action={})=>{
+    let newState={...prevState}
     switch(action.type){
         case ADD:
-            newState++
+            newState.count++
         return newState
         case SUB:
-            newState--
+            newState.count--
             return newState
          default:
             return prevState   
