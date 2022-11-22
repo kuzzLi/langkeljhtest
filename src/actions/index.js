@@ -1,35 +1,23 @@
-import axios from "axios";
-import { ADD,SUB ,FETCH_USER_SUCCESS} from "../constants";
-export const add=()=>{
+import { ADD,SUB,LOAD_USER} from '../constants'
+import axios from 'axios';
+export const add = (data)=>{
+    console.log("action function add");
     return dispatch=>{
-        setTimeout(()=>{
-            dispatch({
-                type:ADD
-            })
-        },2000)
+        setTimeout(()=>{//模拟异步
+             dispatch({type:ADD})
+        },2000);
     }
 }
-export const sub=()=>{
-    return{
+
+export const sub = ()=>{
+    return {
         type:SUB
     }
 }
-export const  get_user=()=>{
 
-    return dispatch=>{
-        dispatch({
-            type:'FETCH_USER_LOADING'
-        })
-        axios.get('https://randomuser.me/api').then(res=>{
-            dispatch({
-                type:FETCH_USER_SUCCESS,
-                email:res.data.results[0]
-            })
-        }).catch(error=>{
-            dispatch({
-                type:'FETCH_USER_ERROR',
-                error:error.response.data
-            })
-        })
+export const get_user = ()=>{
+    return {
+        type:LOAD_USER,//action type操作类型前缀
+        payload:axios.get("https://randomuser.me/api")
     }
 }
