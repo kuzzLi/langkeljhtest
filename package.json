@@ -52,6 +52,8 @@
     "react-redux": "^8.0.5",
     "react-router-config": "^5.1.1",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.2"
   }
 }

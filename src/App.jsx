@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import * as type from './actions';
+import User from './store/components/user';
 // import { bindActionCreators } from 'redux';
 const mapStateToProps=(state)=>{
     return{
@@ -11,7 +12,7 @@ const mapStateToProps=(state)=>{
 class App extends Component {
     render() {
         let { counter,add,sub} = this.props;
-        console.log(this.props);
+        // console.log(this.props);
         return (
             <div>
                   <h3>App组件</h3>
@@ -22,6 +23,7 @@ class App extends Component {
                 <button onClick={()=>{
                     sub()
                 }}>-</button>
+                <User></User>
             </div>
         );
     }

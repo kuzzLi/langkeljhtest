@@ -1,4 +1,4 @@
-export const combineReducer=(reducer)=>{
+export const combineReducer=(reducer)=>{//{ count:CountReducer, user:UserReducer}
     return function (state={},action){
         let newState={}
         Object.keys(reducer).forEach(item=>{
@@ -8,3 +8,7 @@ export const combineReducer=(reducer)=>{
         return newState
     }
 }
+// const rootReducer=combineReducer({
+//     count:CountReducer,
+//     user:UserReducer
+// })
